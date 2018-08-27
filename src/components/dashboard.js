@@ -18,7 +18,7 @@ class Dashboard extends Component {
        
         <Fragment>
             <h1>Chores App</h1>
-           <ChoreForm onComplete={this.props.choreCreate}/>
+           <ChoreForm onComplete={this.props.choreCreate} buttonText='submit'/>
            <button onClick={() => this.props.fetchChores()}>test async</button>
            <ul>{this.props.chore.map(chore => (
           <ChoreItem chore={chore} key={chore.id} onRemove={this.props.choreDelete} onComplete={this.props.choreUpdate}/>))}

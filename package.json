@@ -4,6 +4,7 @@
   "description": "![cf](http://i.imgur.com/7v5ASc8.png) Async Actions ===",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.4",
     "enzyme": "3.4.0",
     "enzyme-adapter-react-16": "1.2.0",
     "eslint-plugin-jest": "^21.18.0",

@@ -1,6 +1,10 @@
 import uuid from 'uuid/v4';
 import superagent from 'superagent';
-const url = 'http://localhost:3014/api/v1/chores';
+import cors from 'cors';
+
+//const url = 'http://localhost:3014/api/v1/chores';
+const url = 'https://relationship-modeling14.herokuapp.com/api/v1/chores';
+//const url = 'https://internets-of-thing-api.herokuapp.com/api/v1/things';
 // Actions
 export const CHORE_ADD = 'chore/ADD';
 export const CHORE_UPDATE = 'chore/UPDATE';
@@ -35,12 +39,7 @@ export const choreCreate = (payload) => {
             dispatch({type: CHORE_ADD, payload: res.body})
         })
     }
-//     console.log('inside action creator', chore)
-//   chore.id = uuid();
-//   return {
-//     type: CHORE_ADD,
-//     payload: chore,
-//   };
+
 };
 export const choreAsyncCreate = (chore) => {
     console.log('inside action creator', chore)
@@ -50,13 +49,26 @@ export const choreAsyncCreate = (chore) => {
   };
 };
 
-export const choreUpdate = (chore) => {
-
-//   type: CHORE_UPDATE,
-//   payload: chore,
-};
+export const choreUpdate = (chore) => ({
+    // return dispatch => {
+    //     superagent.put(url, payload._id)
+    //     .then(res => {
+    //         console.log('res:', res.body);
+    //         dispatch({type: CHORE_UPDATE, payload: res.body})
+    //     })
+    // }
+  type: CHORE_UPDATE,
+  payload: chore,
+});
 
 export const choreDelete = (chore) => ({
+// return dispatch => {
+//     superagent.delete(url, payload)
+//     .then(res => {
+//         dispatch({type: CHORE_DELETE, payload: res.body})
+//     })
+// }
+
   type: CHORE_DELETE,
   payload: chore,
 });
@@ -65,7 +77,7 @@ export const fetchChores = () => {
     //superagent.get()
   return dispatch => {
 
-    fetch(url)
+    fetch(url, {crossDomain: true})
     .then(function(res) { 
         
       return res.json();
