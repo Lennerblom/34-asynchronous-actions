@@ -4,7 +4,7 @@ export default class ChoreForm extends Component {
   constructor(props) {
     super(props);
     this.defaultState = {
-      chore: '',
+      name: '',
       assignedTo: '',
       completed: false,
       assignedDate: Date.now(),
@@ -38,8 +38,8 @@ export default class ChoreForm extends Component {
       <Fragment>
         <fieldset>
         <form onSubmit={this.onSubmit} onChange={this.onChange}>
-            <label>Chore
-            <input name="chore" value = {this.state.chore}/>
+            <label>Chore/Add Things
+            <input name="name" value = {this.state.name}/>
             </label>
             <label>Assigned To
             <input name="assignedTo" value = {this.state.assignedTo}/>

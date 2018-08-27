@@ -3,8 +3,8 @@ import superagent from 'superagent';
 import cors from 'cors';
 
 //const url = 'http://localhost:3014/api/v1/chores';
-const url = 'https://relationship-modeling14.herokuapp.com/api/v1/chores';
-//const url = 'https://internets-of-thing-api.herokuapp.com/api/v1/things';
+//const url = 'https://relationship-modeling14.herokuapp.com/api/v1/chores';
+const url = 'https://internets-of-thing-api.herokuapp.com/api/v1/things';
 // Actions
 export const CHORE_ADD = 'chore/ADD';
 export const CHORE_UPDATE = 'chore/UPDATE';
@@ -77,7 +77,7 @@ export const fetchChores = () => {
     //superagent.get()
   return dispatch => {
 
-    fetch(url, {crossDomain: true})
+    fetch(url)
     .then(function(res) { 
         
       return res.json();
